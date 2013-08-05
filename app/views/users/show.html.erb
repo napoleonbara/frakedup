@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Login:</strong>
+  <%= @user.login %><br>
+  <strong>Digest:</strong>
+  <%= @user.password_digest %><br>
+  <strong>Privilege:</strong>
+  <%= @user.privilege %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

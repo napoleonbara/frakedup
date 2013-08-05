@@ -1,0 +1,17 @@
+<%= form_for(@sign_in_token) do |f| %>
+  <% if @sign_in_token.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sign_in_token.errors.count, "error") %> prohibited this sign_in_token from being saved:</h2>
+
+      <ul>
+      <% @sign_in_token.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

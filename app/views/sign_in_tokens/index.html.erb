@@ -1,0 +1,28 @@
+<h1>Listing sign_in_tokens</h1>
+
+<p id="notice"><%= notice %></p>
+<table>
+  <thead>
+    <tr>
+      <th>Text</th>
+      <th>Creation date</th>
+      <th>Valid?</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sign_in_tokens.each do |sign_in_token| %>
+      <tr>
+        <td><%= sign_in_token.text %></td>
+        <td><%= sign_in_token.created_at %></td>
+        <td><%= sign_in_token.still_valid?.to_s%></td>
+        <td><%= link_to 'Destroy', sign_in_token, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sign in token', new_sign_in_token_path %>

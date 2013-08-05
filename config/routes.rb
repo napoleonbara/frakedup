@@ -1,4 +1,18 @@
 Frakedup::Application.routes.draw do
+
+  resources :sign_in_tokens, only: [:index, :create, :destroy, :new]
+  resources :sessions, only: [:new, :create]
+  resources :users
+
+  root 'static_pages#home'
+
+  match '/contents', to: 'static_pages#contents',            via: 'get'
+  #match '/login',  to: 'sessions#new',                       via: 'get'
+  match '/logout', to: 'sessions#destroy',                   via: 'delete'
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
