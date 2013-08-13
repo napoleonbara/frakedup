@@ -1,5 +1,21 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :join]
+
+  # PUT /users/:id/game/:game_id
+  def join
+    game = Game.find(params[:game_id])
+    if game.started?
+      # TODO error
+    end
+    game.users << @user
+    @user.game = game
+    if @user.save
+      redirect_to @user,
+          notice: 'User successfully joined the game.'
+    else
+      render action: 'show'
+    end
+  end
 
   # GET /users
   # GET /users.json

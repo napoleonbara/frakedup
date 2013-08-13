@@ -1,5 +1,9 @@
 Frakedup::Application.routes.draw do
 
+  resources :games
+  resources :decks
+  resources :actions
+
   resources :sign_in_tokens, only: [:index, :create, :destroy, :new]
   resources :sessions, only: [:new, :create]
   resources :users
@@ -10,7 +14,9 @@ Frakedup::Application.routes.draw do
   #match '/login',  to: 'sessions#new',                       via: 'get'
   match '/logout', to: 'sessions#destroy',                   via: 'delete'
 
-
+  put '/users/:id/game/:game_id' => 'users#join', :as => 'join_game'
+  post '/games/:id/start' => 'games#start', :as => 'start_game'
+  post '/action/:id/execute' => 'actions#execute', :as => 'execute_action'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

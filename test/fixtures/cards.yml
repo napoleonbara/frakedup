@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  face_up: MyString
+  face_down: MyString
+  name: MyString
+  deck_id: 1
+
+two:
+  face_up: MyString
+  face_down: MyString
+  name: MyString
+  deck_id: 1

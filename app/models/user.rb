@@ -13,9 +13,13 @@ class User < ActiveRecord::Base
   after_create :delete_token, if: :valid?
   
   has_secure_password
-  validates :password, length: {minimum: 8}
+  validates :password, length: {minimum: 8}, on: :create
 
   attr_accessor :sign_in_token
+
+  has_many :decks
+  belongs_to :game
+  has_many :actions
 
   protected
   def delete_token

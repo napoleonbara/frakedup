@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @deck.name %>
+</p>
+<h1>Cards</h1>
+<ul>
+  <% @deck.cards.each do |card| %>
+  <li><%=card.name %><%=image_tag(card.face_up)%></li>
+  <% end %>
+</ul>
+<%= link_to 'Edit', edit_deck_path(@deck) %> |
+<%= link_to 'Back', decks_path %>

@@ -1,5 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <p>
   <strong>Login:</strong>
   <%= @user.login %><br>
@@ -9,5 +20,25 @@
   <%= @user.privilege %>
 </p>
 
+<% if @user.game %>
+  <%= link_to @user.game.name, @user.game %><br>
+  
+  <h1>Decks</h1>
+  <ul>
+    <% @user.decks.each do |deck| %>
+      <li><%= link_to deck.name, deck %></li>
+    <% end %>
+  </ul>
+  <h1>Actions</h1>
+  <ul>
+    <% @user.actions.each do |action| %>
+      <li><%= link_to action.name, execute_action_path(action), :method => :post %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <% Game.all.each do |game| %>
+    <%= game.name %><%= link_to 'Join', join_game_path(@user, game), :method => :put %><br>
+  <% end %>
+<% end %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

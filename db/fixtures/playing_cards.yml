@@ -1,0 +1,105 @@
+card:
+  - name: Ace of hearts
+    face_up: as_coeur.png
+  - name: 2 of hearts
+    face_up: 2_coeur.png
+  - name: 3 of hearts
+    face_up: 3_coeur.png
+  - name: 4 of hearts
+    face_up: 4_coeur.png
+  - name: 5 of hearts
+    face_up: 5_coeur.png
+  - name: 6 of hearts
+    face_up: 6_coeur.png
+  - name: 7 of hearts
+    face_up: 7_coeur.png
+  - name: 8 of hearts
+    face_up: 8_coeur.png
+  - name: 9 of hearts
+    face_up: 9_coeur.png
+  - name: 10 of hearts
+    face_up: 10_coeur.png
+  - name: Jack of hearts
+    face_up: valet_coeur.png
+  - name: Queen of hearts
+    face_up: dame_coeur.png
+  - name: King of hearts
+    face_up: roi_coeur.png
+  - name: Ace of spades
+    face_up: as_pique.png
+  - name: 2 of spades
+    face_up: 2_pique.png
+  - name: 3 of spades
+    face_up: 3_pique.png
+  - name: 4 of spades
+    face_up: 4_pique.png
+  - name: 5 of spades
+    face_up: 5_pique.png
+  - name: 6 of spades
+    face_up: 6_pique.png
+  - name: 7 of spades
+    face_up: 7_pique.png
+  - name: 8 of spades
+    face_up: 8_pique.png
+  - name: 9 of spades
+    face_up: 9_pique.png
+  - name: 10 of spades
+    face_up: 10_pique.png
+  - name: Jack of spades
+    face_up: valet_pique.png
+  - name: Queen of spades
+    face_up: dame_pique.png
+  - name: King of spades
+    face_up: roi_pique.png
+  - name: Ace of diamonds
+    face_up: as_carreau.png
+  - name: 2 of diamonds
+    face_up: 2_carreau.png
+  - name: 3 of diamonds
+    face_up: 3_carreau.png
+  - name: 4 of diamonds
+    face_up: 4_carreau.png
+  - name: 5 of diamonds
+    face_up: 5_carreau.png
+  - name: 6 of diamonds
+    face_up: 6_carreau.png
+  - name: 7 of diamonds
+    face_up: 7_carreau.png
+  - name: 8 of diamonds
+    face_up: 8_carreau.png
+  - name: 9 of diamonds
+    face_up: 9_carreau.png
+  - name: 10 of diamonds
+    face_up: 10_carreau.png
+  - name: Jack of diamonds
+    face_up: valet_carreau.png
+  - name: Queen of diamonds
+    face_up: dame_carreau.png
+  - name: King of diamonds
+    face_up: roi_carreau.png
+  - name: Ace of clubs
+    face_up: as_trefle.png
+  - name: 2 of clubs
+    face_up: 2_trefle.png
+  - name: 3 of clubs
+    face_up: 3_trefle.png
+  - name: 4 of clubs
+    face_up: 4_trefle.png
+  - name: 5 of clubs
+    face_up: 5_trefle.png
+  - name: 6 of clubs
+    face_up: 6_trefle.png
+  - name: 7 of clubs
+    face_up: 7_trefle.png
+  - name: 8 of clubs
+    face_up: 8_trefle.png
+  - name: 9 of clubs
+    face_up: 9_trefle.png
+  - name: 10 of clubs
+    face_up: 10_trefle.png
+  - name: Jack of clubs
+    face_up: valet_trefle.png
+  - name: Queen of clubs
+    face_up: dame_trefle.png
+  - name: King of clubs
+    face_up: roi_trefle.png

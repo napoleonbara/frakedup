@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  from_id: 1
+  to_id: 1
+  quantity: 1
+  draw_mode: 1
+  insert_mode: 1
+  player_id: 1
+
+two:
+  name: MyString
+  from_id: 1
+  to_id: 1
+  quantity: 1
+  draw_mode: 1
+  insert_mode: 1
+  player_id: 1
