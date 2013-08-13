@@ -17,3 +17,6 @@
 
 # Ignore swap files from vim
 *.swp
+
+# Ignore redcar config
+.redcar
