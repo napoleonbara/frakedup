@@ -29,7 +29,18 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'RedCloth'
 gem 'bcrypt-ruby', '3.0.1'
-gem "rspec-rails", "~> 2.14.0"
+
+group :development, :test do
+  gem 'rspec-rails', '~> 2.14.0'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
