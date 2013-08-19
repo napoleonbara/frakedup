@@ -1,3 +1,4 @@
 class Card < ActiveRecord::Base
-  belongs_to :deck, inverse_of: :cards
+  validates :recto, presence: true
+  validates :verso, presence: true
 end
