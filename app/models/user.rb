@@ -1,3 +1,4 @@
+require 'securerandom'
 
 class TokenValidator < ActiveModel::Validator
 end
@@ -15,16 +16,30 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: {minimum: 8}, on: :create
 
+  before_create :create_session_token
+
   attr_accessor :sign_in_token
 
   has_many :decks
   belongs_to :game
   has_many :actions
 
+  def User.new_session_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def User.encrypt token
+    Digest::SHA1.hexdigest(token.to_s)
+  end
+
   protected
   def delete_token
     token = SignInToken.find_by_text self.sign_in_token
     token.destroy if self.valid?
+  end
+
+  def create_session_token
+    self.session_token = User.encrypt(User.new_session_token)
   end
 
 end

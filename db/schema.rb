@@ -11,45 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130818142700) do
-
-  create_table "actions", force: true do |t|
-    t.string   "name"
-    t.integer  "deck_from_id"
-    t.integer  "deck_to_id"
-    t.integer  "quantity"
-    t.integer  "draw_mode"
-    t.integer  "insert_mode"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "cards", force: true do |t|
-    t.string   "recto"
-    t.string   "verso"
-    t.string   "name"
-    t.integer  "deck_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "position"
-    t.string   "description"
-  end
-
-  create_table "decks", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "game_id"
-    t.integer  "owner_id"
-  end
-
-  create_table "games", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "started",    default: false
-  end
+ActiveRecord::Schema.define(version: 20130821120724) do
 
   create_table "sign_in_tokens", force: true do |t|
     t.string   "text"
@@ -63,7 +25,9 @@ ActiveRecord::Schema.define(version: 20130818142700) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "privilege",       default: "normal"
-    t.integer  "game_id"
+    t.string   "session_token"
   end
+
+  add_index "users", ["session_token"], name: "index_users_on_session_token"
 
 end

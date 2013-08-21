@@ -1,7 +1,9 @@
 module SessionsHelper
 
   def log_in user
-    cookies[:user] = user.id
+    session_token = User.new_session_token
+    cookies.permanent[:session_token] = session_token
+    user.update_attribute(:session_token, User.encrypt(session_token))
     self.current_user = user
   end
 
@@ -10,7 +12,8 @@ module SessionsHelper
   end
 
   def current_user
-    @current_user ||= User.find(cookies[:user])
+    session_token = User.encrypt(cookies[:session_token])
+    @current_user ||= User.find_by(session_token: session_token)
   end
 
   def logged_in?
@@ -19,6 +22,6 @@ module SessionsHelper
 
   def log_out
     self.current_user = nil
-    cookies.delete(:user)
+    cookies.delete(:session_token)
   end
 end
