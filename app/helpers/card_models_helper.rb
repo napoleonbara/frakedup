@@ -1,0 +1,2 @@
+module CardModelsHelper
+end

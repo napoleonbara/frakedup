@@ -1,5 +1,9 @@
 Frakedup::Application.routes.draw do
 
+  resources :card_models
+
+  resources :cards
+
   resources :games
   resources :decks
   resources :actions
