@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130821124521) do
+ActiveRecord::Schema.define(version: 20130822150119) do
 
   create_table "card_models", force: true do |t|
     t.string "recto"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20130821124521) do
 
   create_table "cards", force: true do |t|
     t.integer "card_model_id"
+  end
+
+  create_table "cards_decks", force: true do |t|
+    t.integer "deck_id"
+    t.integer "card_id"
+    t.integer "rank"
+  end
+
+  create_table "decks", force: true do |t|
+    t.string "name"
   end
 
   create_table "sign_in_tokens", force: true do |t|
