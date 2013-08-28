@@ -3,7 +3,6 @@
 
 <% if logged_in? %>
   <p><%= "bienvenue #{current_user.login}" %></p>
-  <%= link_to 'log out', logout_path, method: 'delete' %>
 <% else %>
   <p>not signed in</p>
 <% end %>
