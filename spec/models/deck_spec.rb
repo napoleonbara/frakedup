@@ -40,7 +40,12 @@ describe Deck do
   end
 
   describe 'destruction' do
-    it 'also destroys its cards association'
+    it 'also destroys its cards association' do
+      id = random_deck.id
+      CardsDeck.where(deck_id: id).any?.should be_true
+      random_deck.destroy
+      CardsDeck.where(deck_id: id).any?.should be_false
+    end
   end
 
   it 'can be shuffled' do
