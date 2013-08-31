@@ -1,0 +1,57 @@
+<div id="administration">
+  <h1>Administration</h1>
+
+  <div id="users">
+    <h2>Users</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Login</th>
+          <th>Privilege</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.login %></td>
+            <td><%= user.privilege %></td>
+            <td><%= link_to 'Show', user %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div id="tokens">
+    <h2>Sign in tokens</h2>
+
+    <%= render 'sign_in_token_form' %>
+
+    <p id="notice"><%= notice %></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Text</th>
+          <th>Creation date</th>
+          <th>Valid?</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @sign_in_tokens.each do |sign_in_token| %>
+          <tr>
+            <td><%= sign_in_token.text %></td>
+            <td><%= sign_in_token.created_at %></td>
+            <td><%= sign_in_token.still_valid?.to_s%></td>
+            <td><%= link_to 'Destroy', sign_in_token, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= link_to 'retour', contents_path%>
+

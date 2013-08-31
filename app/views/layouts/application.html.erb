@@ -9,10 +9,12 @@
 <body>
   <div id="header">
     <%= link_to 'log out', logout_path, method: 'delete' if logged_in?%>
-    <%= link_to 'faire des trucs d\'admin', sign_in_tokens_path if logged_in? and current_user.privilege == 'admin' %>
+    <%= link_to 'faire des trucs d\'admin', administration_path if admin? %>
+    <%= link_to 'mon compte', current_user if logged_in? %>
   </div>
 
 <%= yield %>
 
 </body>
 </html>
+

@@ -1,21 +1,14 @@
 Frakedup::Application.routes.draw do
 
-  resources :card_models
-
-  resources :cards
-
-  resources :games
-  resources :decks
-  resources :actions
-
-  resources :sign_in_tokens, only: [:index, :create, :destroy, :new]
-  resources :sessions, only: [:new, :create]
-  resources :users
+  resources :sign_in_tokens, only: [:create, :destroy]
+  resources :sessions, only: [:create]
+  resources :users, only: [:new, :create, :update, :destroy, :show, :edit]
 
   root 'static_pages#home'
 
   match '/contents', to: 'static_pages#contents',            via: 'get'
-  #match '/login',  to: 'sessions#new',                       via: 'get'
+  match '/administration', to: 'static_pages#administration', via: 'get'
+  match '/welcome', to: 'static_pages#welcome', via: 'get'
   match '/logout', to: 'sessions#destroy',                   via: 'delete'
 
   put '/users/:id/game/:game_id' => 'users#join', :as => 'join_game'
@@ -63,7 +56,7 @@ Frakedup::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
@@ -78,3 +71,4 @@ Frakedup::Application.routes.draw do
   #     resources :products
   #   end
 end
+

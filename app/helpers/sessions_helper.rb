@@ -20,6 +20,10 @@ module SessionsHelper
     not current_user.nil?
   end
 
+  def admin?
+    logged_in? and current_user.privilege == 'admin'
+  end
+
   def log_out
     self.current_user = nil
     cookies.delete(:session_token)

@@ -1,3 +1,17 @@
+<%
+back_place = case session[:last_page]
+  when Regexp.new(administration_path) then "Retour a l'administration"
+  when Regexp.new(contents_path)       then "Retour aux jeux"
+  else                                      "Retour"
+end
+
+detruire_compte = if @user == current_user
+  "Detruire mon compte"
+else
+  "Detruire son compte"
+end
+%>
+
 <p id="notice"><%= notice %></p>
 
 <% if @user.errors.any? %>
@@ -14,31 +28,29 @@
 <p>
   <strong>Login:</strong>
   <%= @user.login %><br>
-  <strong>Digest:</strong>
-  <%= @user.password_digest %><br>
-  <strong>Privilege:</strong>
-  <%= @user.privilege %>
 </p>
 
-<% if @user.game %>
-  <%= link_to @user.game.name, @user.game %><br>
-  
-  <h1>Decks</h1>
-  <ul>
-    <% @user.decks.each do |deck| %>
-      <li><%= link_to deck.name, deck %></li>
-    <% end %>
-  </ul>
-  <h1>Actions</h1>
-  <ul>
-    <% @user.actions.each do |action| %>
-      <li><%= link_to action.name, execute_action_path(action), :method => :post %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <% Game.all.each do |game| %>
-    <%= game.name %><%= link_to 'Join', join_game_path(@user, game), :method => :put %><br>
+<% if admin? %>
+  <%= form_for(@user) do |f| %>
+    <div class="field">
+      <%= f.label :privilege %><br>
+      <%= f.label :privilege_normal, 'normal' %>
+      <%= f.radio_button 'privilege', 'normal' %>
+      <%= f.label :privilege_admin, 'admin' %>
+      <%= f.radio_button 'privilege', 'admin' %>
+      <%= f.submit 'changer privilege' %>
+    </div>
   <% end %>
 <% end %>
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= form_for(@user) do |f| %>
+  <div class="field">
+  <%= f.label :password %>
+  <%= f.password_field :password %><br>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %><br>
+  <%= f.submit 'changer mot de passe' %>
+  </div>
+<% end %>
+<%= link_to detruire_compte, user_path(@user), method: 'delete', confirm: 'Vous etes sur?' %>
+<%= link_to back_place, session[:last_page] %>
+

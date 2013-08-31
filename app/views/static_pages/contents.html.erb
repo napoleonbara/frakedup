@@ -1,10 +1,5 @@
-<h1>StaticPages#contents</h1>
-<p>Find me in app/views/static_pages/contents.html.erb</p>
+<p><%= "bienvenue #{current_user.login}" %></p>
+<h1>Parties en cours</h1>
 
-<% if logged_in? %>
-  <p><%= "bienvenue #{current_user.login}" %></p>
-<% else %>
-  <p>not signed in</p>
-<% end %>
 
 
